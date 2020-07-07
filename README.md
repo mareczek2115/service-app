@@ -1,4 +1,4 @@
-Prosta aplikacja webowa do ewidencji wykonywanych serwisów np. w serwisie komputerowym
+<h1>Prosta aplikacja webowa do ewidencji wykonywanych serwisów np. w serwisie komputerowym</h1>
 
 Do uruchomienia potrzebne jest zainstalowane środowisko Node.js.
 
@@ -9,4 +9,4 @@ Jeżeli chcemy używać MongoDB w chmurze, należy stworzyć tam klaster, dodać
 Można też używać Mongo lokalnie (wymagana instalacja), należy wtedy zmienić adres na: `mongodb://localhost:27017/<database>`
 
 Aby uruchomić serwer, wpisz:
-`node app.js`.
+`npm start`.
