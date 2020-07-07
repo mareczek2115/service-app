@@ -16,11 +16,12 @@
         <% } %>
         <a href="/" class="btn btn-secondary">Strona główna</a>
         <a href="/serwis/<%= status %>/nowy" class="btn btn-info ml-1">Dodaj serwis</a>
-        <form action="/serwis/<%= status %>" method="POST" class="mt-4">
+        <form action="/serwis/<%= status %>" method="POST" class="mt-2 ml-1">
             <div class="form-group">
-                <label for="findService" class="col-form-label">Szukaj</label>
+                <label for="findService" class="col-form-label">Szukaj</label><br>
                 <input type="text" name="findService" id="findService" class="form-control col-md-4 d-inline">
-                <button type="submit" class="btn btn-info d-inline">Szukaj</button>
+                <button type="submit" class="btn btn-info d-inline">Szukaj</button><br>
+                <small class="text-muted ml-1">Przeszukiwane są tytuł i opis serwisu</small>
             </div>
         </form>
         <% services.forEach(service => { %>

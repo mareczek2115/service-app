@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const beingService = require('../models/BeingService');
-const doneService = require('../models/DoneService');
+const beingService = require('../models/Services').beingService;
+const doneService = require('../models/Services').doneService;
 
 router.get('/:status', (req, res) => {
     let status = req.params.status;
