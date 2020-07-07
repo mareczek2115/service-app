@@ -1,6 +1,6 @@
-#Aplikacja webowa do ewidencji serwisów
+Aplikacja webowa do ewidencji serwisów
 
-##Do uruchomienia potrzebne jest zainstalowane środowisko Node.js.
+Do uruchomienia potrzebne jest zainstalowane środowisko Node.js.
 
 Dodatkowo należy zainstalować kilka modułów:
 `npm i express mongoose ejs method-override shortid`
