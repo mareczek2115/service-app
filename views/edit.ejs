@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serwis - MOCAK</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-2">Edytuj</h1>
+        <a href="/" class="btn btn-secondary">Strona główna</a>
+        <form action="/serwis/<%= status %>/<%= service.id %>/edytuj" class="mt-2" method="POST">
+            <fieldset>
+                <%- include('./partials/formField') %>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

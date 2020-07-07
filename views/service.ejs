@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serwis - MOCAK</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+    <div class="container">
+        <% if(status === 'zakonczone'){ %>
+            <h1 class="mt-2">Serwisy zakończone</h1>
+        <% } else{ %>
+            <h1 class="mt-2">Serwisy aktywne</h1>
+        <% } %>
+        <a href="/" class="btn btn-secondary">Strona główna</a>
+        <% if(status === 'zakonczone'){ %>
+            <a href="/serwis/zakonczone" class="btn btn-info ml-1">Serwisy zakończone</a>
+        <% } else{ %>
+            <a href="/serwis/aktywne" class="btn btn-info ml-1">Serwisy aktywne</a>
+        <% } %>
+        <div class="card mt-3">
+            <div class="card-body">
+                <h1 class="card-title"><%= service.title %></h1>
+                <div class="card-subtitle text-muted mb-2">
+                    <% if(status === 'aktywne'){ %>
+                        Data rozpoczęcia <%= service.startDate.toLocaleDateString() %>
+                    <% } else{ %>
+                        Data rozpoczęcia <%= service.startDate.toLocaleDateString() %> | Data zakończenia <%= service.finishDate.toLocaleDateString() %>
+                    <% } %>
+                </div>
+                <h5 class="card-subtitle"><%= service.servicer %></h5>
+                <hr/>
+                <div class="card-text mt-2 h4">
+                    <%= service.description %>
+                </div>
+                <form action="/serwis/<%= status %>/<%= service.id %>?_method=DELETE" method="POST" class="d-inline">
+                    <button type="submit" class="btn btn-primary mt-4">Usuń</button>
+                </form>
+                <a href="/serwis/<%= status %>/<%= service.id %>/edytuj" class="btn btn-info mt-4 ml-1">Edytuj</a>
+                <% if(status === 'aktywne'){ %>
+                    <a href="/serwis/aktywne/<%= service.id %>/przenies" class="btn btn-warning mt-4 ml-1">Przenieś do zakończonych</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

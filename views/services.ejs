@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serwis - MOCAK</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+    <div class="container">
+        <% if(status === 'zakonczone'){ %>
+            <h1 style="cursor: pointer;" class="mt-2" onclick="window.location.assign('/serwis/zakonczone')">Serwisy zakończone</h1>
+        <% } else{ %>
+            <h1 style="cursor: pointer;" class="mt-2" onclick="window.location.assign('/serwis/aktywne')">Serwisy aktywne</h1>
+        <% } %>
+        <a href="/" class="btn btn-secondary">Strona główna</a>
+        <a href="/serwis/<%= status %>/nowy" class="btn btn-info ml-1">Dodaj serwis</a>
+        <form action="/serwis/<%= status %>" method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="findService" class="col-form-label">Szukaj</label>
+                <input type="text" name="findService" id="findService" class="form-control col-md-4 d-inline">
+                <button type="submit" class="btn btn-info d-inline">Szukaj</button>
+            </div>
+        </form>
+        <% services.forEach(service => { %>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h3 class="card-title"><%= service.title %></h3>
+                    <div class="card-subtitle text-muted">
+                        <% if(status === 'aktywne'){ %>
+                            Data rozpoczęcia <%= service.startDate.toLocaleDateString() %>
+                        <% } else{ %>
+                            Data rozpoczęcia <%= service.startDate.toLocaleDateString() %> | Data zakończenia <%= service.finishDate.toLocaleDateString() %>
+                        <% } %>
+                    </div>
+                    <a href="/serwis/<%= status %>/<%= service.id %>" class="btn btn-info mt-2">Szczegóły</a>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <script>
+        const element = document.querySelector('#findService');
+        if(element.value != '') element.value = '';
+    </script>
+</body>
+</html>

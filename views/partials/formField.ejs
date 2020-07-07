@@ -1,0 +1,26 @@
+<label for="title" class="h5">Tytuł</label>
+<input required type="text" name="title" id="title" class="form-control" value="<%= typeof service != 'undefined' ? service.title : '' %>">
+<label for="startDate" class="mt-2 h5">Data rozpoczęcia</label>
+<input type="date" name="startDate" id="startDate" class="form-control" value="<%= typeof service != 'undefined' ? service.startDate.toISOString().substr(0, 10) : '' %>">
+<small class="form-text text-muted">Domyślnie dzisiejsza data</small>
+<% if(status === 'zakonczone'){ %>
+    <label for="finishDate" class="mt-2 h5">Data zakończenia</label>
+    <input type="date" name="finishDate" id="finishDate" class="form-control" value="<%= typeof service != 'undefined' ? service.finishDate.toISOString().substr(0, 10) : '' %>">
+    <small class="form-text text-muted">Domyślnie dzisiejsza data</small>
+<% } %>
+<% if(status === 'przenoszone'){ %>
+    <label for="finishDate" class="mt-2 h5">Data zakończenia</label>
+    <input type="date" name="finishDate" id="finishDate" class="form-control">
+    <small class="form-text text-muted">Domyślnie dzisiejsza data</small>
+<% } %>
+<label for="servicer" class="mt-2 h5">Serwisant</label>
+<input required type="text" name="servicer" id="servicer" class="form-control" value="<%= typeof service != 'undefined' ? service.servicer : '' %>">
+<label for="description" class="mt-2 h5">Opis</label>
+<textarea required name="description" id="description" cols="30" rows="5" class="form-control"><%= typeof service != 'undefined' ? service.description : '' %></textarea>
+<% if(status !== 'przenoszone'){ %>
+    <a href="/serwis/<%= status %>" class="btn btn-primary mt-3">Anuluj</a>
+    <button type="submit" class="btn btn-success mt-3 ml-1">Zapisz</button>
+<% } else{ %>
+    <a href="/serwis/aktywne" class="btn btn-primary mt-3">Anuluj</a>
+    <button type="submit" class="btn btn-success mt-3 ml-1">Przenieś</button>
+<% } %>
