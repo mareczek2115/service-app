@@ -1,4 +1,4 @@
-Prosta aplikacja webowa do ewidencji wykoywanych serwisów np. w serwisie komputerowym
+Prosta aplikacja webowa do ewidencji wykonywanych serwisów np. w serwisie komputerowym
 
 Do uruchomienia potrzebne jest zainstalowane środowisko Node.js.
 
