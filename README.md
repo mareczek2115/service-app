@@ -1,12 +1,11 @@
-<h1>Prosta aplikacja webowa do ewidencji wykonywanych serwisów np. w serwisie komputerowym</h1>
+<h1>A simple web application for recording services performed, e.g. in a computer service</h1>
 
-Do uruchomienia potrzebne jest zainstalowane środowisko Node.js.
+You need Node.js environment installed to run.
 
-Dodatkowo należy zainstalować kilka modułów:
-`npm i express mongoose ejs method-override shortid`
+Additionally, several modules need to be installed:
+`npm install express mongoose ejs method-override shortid`
 
-Jeżeli chcemy używać MongoDB w chmurze, należy stworzyć tam klaster, dodać użytkownika z uprawnieniami do odczytu i zapisu, oraz dodać nasz publiczny adres IP aby móc połączyć się z klastrem.
-Można też używać Mongo lokalnie (wymagana instalacja), należy wtedy zmienić adres na: `mongodb://localhost:27017/<database>`
+If you want to use MongoDB in the cloud, you need to create a cluster there, add a user with read and write permissions, and add your public IP address to be able to connect to the cluster. You can also use Mongo locally, then change the address to: `mongodb://localhost:27017/<database>`
 
-Aby uruchomić serwer, wpisz:
+To run the application, type:
 `npm start`.
