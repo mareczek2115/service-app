@@ -8,7 +8,8 @@ const methodOverride = require('method-override');
 //musisz zmienić <username>, <password> i <database> na własne odpowiednie dane.
 //Nie musisz tworzyć bazy ani kolekcji, mongoose zrobi to sam.
 const MongoURI =
-  'mongodb+srv://<username>:<password>@moja-baza.m4kve.mongodb.net/<database>';
+  // 'mongodb+srv://<username>:<password>@moja-baza.m4kve.mongodb.net/<database>';
+  'mongodb://127.0.0.1:27017/<database>';
 mongoose
   .connect(MongoURI, {
     useNewUrlParser: true,
